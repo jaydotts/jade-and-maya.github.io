@@ -1,0 +1,29 @@
+
+body {
+    background-image: url('../elements/bgpinksmoke.gif');
+    /*background-repeat: repeat-y;*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20vh;
+    margin: 0;}
+
+img {
+    max-width: 90%; /* Limits the width to 90% of the screen */
+    max-height: 90vh; /* Limits the height to 90% of the viewport height */
+    width: auto; /* Maintains aspect ratio */
+    height: auto; /* Maintains aspect ratio */
+}
+
+h1 {
+    font-size:60px;
+    display: flex;
+    color: rgb(209, 150, 213);
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0px;
+}
+h2 {
+    margin-top:0px; 
+    color: rgb(214, 255, 209);
+}
