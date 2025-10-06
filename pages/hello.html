@@ -2,22 +2,162 @@
 <html>
     
 <head>
-    <title>Hello</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Wedding Site Fix</title>
     <link rel="stylesheet" href="../css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <!-- Load Tailwind CSS from CDN for general styling support -->
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body>
-    <div>
-        <h1>
-            Maya & Jade
-        </h1>
-        <h2>
-            August 1st, 2026
-        </h2>
+<div class="content-wrapper">
+        <body>
+        <header>
+            <h1>
+                <!-- Using a placeholder for your gif -->
+                <img id="header-image" src="../elements/name-and-clouds.gif" alt="Site Header Name">
+            </h1>
+            <div class="theme-selector">
+                <label for="theme-select">Are</label>
+                <select id="theme-select" onchange="changeTheme(this.value)">
+                    <option value="default">Getting Married!</option>
+                    <option value="hitched">Fixin' to Get Hitched!</option>
+                    <option value="knot">Tying the Knot!</option>
+                    <option value="gay">Becoming Wife and Wife</option>
+                    <option value="trad">Officially a Couple in the Eyes of God (and the government)</option>
+                </select>
+            </div>
+            <h2>
+                <nav>
+                    <ul>
+                        <li style="color:pink">
+                            <a href="#rsvp">
+                                <img src="../elements/letter.gif" alt="RSVP Letter icon" 
+                                style="margin-top:2%;">
+                                RSVP
+                            </a>
+                        </li>
+
+                        <li style="color:pink">
+                            <a href="#story">
+                                <img src="../elements/lil-heart.gif" alt="Our Story Heart icon">
+                                Our Story
+                            </a>
+                        </li>
+                        <li style="color:pink">
+                            <a href="#photos">
+                                <img src="../elements/camera.gif" alt="Photos Camera icon">
+                                Photos
+                            </a>
+                        </li>
+                        <li style="color:pink">
+                            <a href="#info">
+                                <img src="../elements/info-bubble.gif" alt="Event Info Bubble icon">
+                                Event Info
+                            </a>
+                        </li>
+                        <li style="color:pink">
+                            <a href="#party">
+                                <img src="../elements/lil-star.gif" alt="Bridal Party Star icon">
+                                Bridal Party
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </h2>
+        </header>
+
+        <div class="media-frame">
+            <!-- Using a placeholder for your frame image. Width set to 95vw is now constrained by max-width in CSS for centering -->
+            <img src="../elements/big-frame.png" alt="Decorative photo frame">
+            
+            <!-- Slides are now centered within the frame via Flexbox/Absolute + Transform -->
+            <div class="mySlides fade">
+                <img src="../elements/maya-by-car.JPG" alt="Image by car">
+            </div>
+
+            <div class="mySlides fade">
+                <img src="../elements/jade-at-beach.png" alt="Image of two people">
+            </div>
+
+            <div class="mySlides fade">
+                <img src="../elements/maya-and-jade.png" alt="Image at beach">
+            </div>
+
+            <!-- Next and previous buttons are now centered vertically -->
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+0
+        <script>
+            
+        const themeSettings = {
+            'default': '../elements/name-and-clouds.gif',
+            'hitched': '../elements/name-western.gif',
+            'gold': 'https://placehold.co/800x200/ffd700/800000?text=Golden+Hour+Header'
+        };
+
+        // UPDATED FUNCTION: Finds the header image element and sets its src attribute
+        function changeTheme(newTheme) {
+            const imageElement = document.getElementById('header-image');
+            
+            if (imageElement) {
+                const newImageUrl = themeSettings[newTheme] || themeSettings['default'];
+                // Set the image source directly
+                imageElement.src = newImageUrl;
+                
+                console.log("Header image changed to theme:", newTheme);
+            } else {
+                console.error("Header image element not found!");
+            }
+        }
+        
+        // Initialize the theme on load to match the dropdown selection
+        function initializeTheme() {
+            const initialTheme = document.getElementById('theme-select').value;
+            // Call changeTheme to set the initial header image
+            changeTheme(initialTheme);
+        }
+
+            let slideIndex = 1;
+            showSlides(slideIndex);
+
+            // Next/previous controls
+            function plusSlides(n) {
+                showSlides(slideIndex += n);
+            }
+
+            // Thumbnail image controls (kept for functionality, though dots are commented out)
+            function currentSlide(n) {
+                showSlides(slideIndex = n);
+            }
+
+            function showSlides(n) {
+                let i;
+                let slides = document.getElementsByClassName("mySlides");
+                // let dots = document.getElementsByClassName("dot"); // commented out
+                if (n > slides.length) { slideIndex = 1 }
+                if (n < 1) { slideIndex = slides.length }
+                for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";
+                }
+                /*
+                for (i = 0; i < dots.length; i++) {
+                    dots[i].className = dots[i].className.replace(" active", "");
+                }
+                */
+                // Only show the selected slide
+                if (slides.length > 0) {
+                        slides[slideIndex - 1].style.display = "flex"; 
+                }
+                // if (dots.length > 0) { dots[slideIndex - 1].className += " active"; } // commented out
+            }
+            
+            // Ensure the first slide is shown on load
+            window.onload = function() {
+                showSlides(1);
+            }
+        </script>
+        </body>
     </div>
-</body>
-
-
-
 </html>
