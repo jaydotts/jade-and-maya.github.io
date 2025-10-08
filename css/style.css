@@ -282,6 +282,65 @@ ul li:hover {
     width:100%;
 }
 
+
+.floating-block {
+    height: auto;
+    width: 100%; /* Use 100% instead of 100vw to respect any container padding */
+    display: block; /* Ensure it behaves like a block element */
+    max-width: 170%;
+    margin-bottom: 2.5%;
+    margin-top:2.5%;
+    margin-left:-38%;
+}
+
+.floating-image {
+    display: flex;
+    position: relative;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    max-width: 95vw; /* Max width set by your image */
+    margin: 20px auto; /* Center the whole frame */
+    height: auto;
+}
+
+.content-box{
+    background-color: #c5feff; /* Windows 95 light gray */
+    border: 2px solid #6052df; /* White highlight on top/left */
+    border-right: 2px solid #000; /* Black shadow on right/bottom */
+    border-bottom: 2px solid #000;
+    box-shadow: 2px 2px 0 #ee06e6; /* Shadow for 3D lift */
+    padding: 0; 
+    cursor: pointer;
+    border-radius: 0; /* No rounding */
+    max-width: 90%;
+    margin-left:3%;
+    min-width: 180px;
+    position: relative;
+    animation-name: animatetop;
+    animation-duration: 0.4s;
+    display:grid;
+    justify-items: left;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.content-box details{
+    width:100%;
+    margin-left: 2%;
+}
+
+.content {
+  padding: 0 18px;
+  max-height: 0; /* Initially hide content */
+  overflow: hidden;
+  transition: max-height 0.2s ease-out; /* Smooth transition for expansion */
+  background-color: #f1f1f1;
+}
+
+/* Optional: Style for when the button is active/content is shown */
+.active, .collapsible:hover {
+  background-color: #ccc;
+}
+
 /* --- 90s WINDOWS DIALOGUE STYLES --- */
 
 /* The Modal Overlay (background) - Kept mostly the same */
